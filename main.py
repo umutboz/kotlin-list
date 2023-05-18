@@ -55,14 +55,14 @@ if len(sys.argv) >= 6 and "theme" in sys.argv[3]:
             name="list_activity_theme2_mustache",
             dict={"package_name": package, "activity_name": activity_name,
                   "list_activity_layout_xml_name": activity_layout_name,
-                  "adapter_name": adapter_name},
+                  "adapter_name": adapter_name, "model_upper": name},
             output_file=activity_name + kotlin_extension
         )
         item_layout_xml = item_layout_xml + "_theme2"
         adapter_TF = TemplateFile(
             name="list_adapter_theme2_mustache",
             dict={"adapter_name": adapter_name, "package_name": package, "list_item_xml_name": item_layout_xml,
-                  "model": model},
+                  "model": model, "model_upper": name},
             output_file=adapter_name + kotlin_extension
         )
         layout_xml_TF = TemplateFile(
@@ -80,13 +80,14 @@ if len(sys.argv) >= 6 and "theme" in sys.argv[3]:
             name="list_activity_theme1_mustache",
             dict={"package_name": package, "activity_name": activity_name,
                   "list_activity_layout_xml_name": activity_layout_name,
-                  "adapter_name": adapter_name},
+                  "adapter_name": adapter_name, "model_upper": name},
             output_file=activity_name + kotlin_extension
         )
         item_layout_xml = item_layout_xml + "_theme1"
         adapter_TF = TemplateFile(
             name="list_adapter_theme1_mustache",
-            dict={"adapter_name": adapter_name, "package_name": package, "list_item_xml_name": item_layout_xml},
+            dict={"adapter_name": adapter_name, "package_name": package, "list_item_xml_name": item_layout_xml,
+                  "model_upper": name, "model": model},
             output_file=adapter_name + kotlin_extension
         )
         layout_xml_TF = TemplateFile(
@@ -96,7 +97,7 @@ if len(sys.argv) >= 6 and "theme" in sys.argv[3]:
         )
         item_layout_xml_TF = TemplateFile(
             name="list_item_xml_theme1_mustache",
-            dict={},
+            dict={"model": model},
             output_file=item_layout_xml + xml_extension
         )
 
